@@ -1,0 +1,189 @@
+%-------------------------
+% Resume in LateX
+% Author : Sourabh Bajaj
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage[empty]{fullpage}
+% provides horizontal lines
+\usepackage{titlesec}
+% used to draw gradient for rule
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% custom colors
+\definecolor{primarycolor}{RGB}{171,34,201}
+\definecolor{fontcolor}{RGB}{60,60,60}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{primarycolor}\titlerule \vspace{-5pt}]
+
+% Ensure that generated PDF is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+% Just in case someone needs a heading that does not need to be in a list
+\newcommand{\resumeHeading}[4]{
+    \begin{tabular*}{0.99\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small #3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small #3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small #1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeItemPlain}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,label=]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\color{fontcolor}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{https://github.com/beezow}{\Large Andrew \textcolor{primarycolor}{Zoghby}}} & \textcolor{primarycolor}{\faEnvelope[regular]} \href{mailto:dzoghby4@gmail.com}{dzoghby4@gmail.com}\\
+   & \href{https://github.com/beezow}{\textcolor{primarycolor}{\faGithub[regular]} github.com/beezow} \\
+\end{tabular*}
+
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Rivos / Meta}{June 2022 - Present}
+      {Firmware Engineer}{}
+      \resumeItemListStart
+        \resumeItemPlain{Led firmware development for a DDR memory controller and PHY on first-generation silicon, reading and understanding the JEDEC specifications and manufacturer data sheets to ensure functionality across a variety of parts.}
+        \resumeItemPlain{Used high-speed oscilloscopes and logic analyzers to debug termination impedances and protocol issues during memory controller bringup to support running at higher data rates.}
+        \resumeItemPlain{Worked with IP vendor to integrate delivered code into custom FW stack, allowing for quick rollout of updates.}
+        % \resumeItemPlain{Built debug tooling for tuning memory controller timing parameters and all dependent values}
+        \resumeItemPlain{Built a framework to run production firmware on a debug host, targeting memory controller configuration to physical chips, enabling bringup before the rest of the firmware stack was available and a seamless transition to full SoC integration.}
+        \resumeItemPlain{Architected and led development of host tooling for controlling a server board during bringup and debug, using a machine-readable model of on-platform devices that dynamically selected operation paths based on board configuration and user preferences, enabling flexible multi-configuration bringup with a simple UX.}
+        \resumeItemPlain{Implemented device drivers for on-board peripherals over JTAG, I2C, I3C, SPI, and other interfaces, enabling board bringup, power sequencing and SoC debug infrastructure.  Required debugging analog and digital circuits for reset sequencing, bus interference, and margin issues.}
+        \resumeItemPlain{Debugged FTDI timing/protocol issues using oscilloscopes and logic analyzers; fixes landed upstream to pyFTDI and pySpiFlash.}
+  \resumeItemPlain{Wrote a variety of RISC-V runtimes, including porting the open source Hubris \href{https://github.com/rivosinc/hubris}{\faLink[regular]} microkernel and its Humility \href{https://github.com/rivosinc/humility}{\faLink} debugger to RISC-V.}
+  \resumeItemPlain{Hired into Meta via the Rivos Inc acquisition in Dec 2025.}
+      \resumeItemListEnd
+      
+    \resumeSubheading
+      {Micron}{Summer 2021}
+      {Embedded System Engineer}{}
+      \resumeItemListStart
+        \resumeItemPlain{Overhauled protocols built on top of USB to utilize DMA for 99\% performance improvement.}
+        \resumeItemPlain{Analyzed legacy test equipment FW to identify and fix newly exposed test escapes.}
+
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {UIUC FRESH Lab}{Spring 2021}
+      {Robotics Engineer}{}
+      \resumeItemListStart
+        \resumeItemPlain{Formulated simulation models of a tractor for efficient testing of algorithms without field testing.}
+        \resumeItemPlain{Collaborated with a team of research engineers to formulate motion planning algorithms.}
+
+      \resumeItemListEnd
+
+
+  \resumeSubHeadingListEnd
+      
+
+
+
+%-----------PROJECTS-----------------
+% \section{Projects}
+  % \resumeSubHeadingListStart
+    % \resumeSubItem{QuantSoftware Toolkit}
+      % {Open source Python library for financial data analysis and machine learning for finance.}
+    % \resumeSubItem{GitHub Visualization}
+      % {Data visualization of Git log data using D3 to analyze project trends over time.}
+    % \resumeSubItem{Recommendation System}
+      % {Music and movie recommender systems using collaborative filtering on public datasets.}
+    % \resumeSubItem{Mac Setup}
+      % {Book that gives step-by-step instructions on setting up developer environment on macOS.}
+  % \resumeSubHeadingListEnd
+
+
+%--------SKILLS------------
+\section{Skills}
+  \resumeSubHeadingListStart
+    \item{
+      \textbf{Languages}{: Rust, C, Python, RISC-V Assembly}
+      \hfill
+      \textbf{Tools}{: Git, Cargo, GDB, KiCAD, Oscilloscopes, Logic analyzers}
+    }
+  \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Illinois Urbana-Champaign}{2018 -- 2022}
+      {BS in Computer Engineering, Minor in Statistics}{3.88/4.0}
+  \resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}
