@@ -4,7 +4,8 @@ pkgs.stdenv.mkDerivation {
   name = "pdf";
   src = ./.;
   buildInputs = with pkgs; [
-    texliveFull
+    # building a custom minimal set seems to be faster than pulling texliveFull
+    (texliveMinimal.withPackages (ps: with ps;[ collection-latexextra ]))
   ];
   buildPhase = ''
     pdflatex main.tex
