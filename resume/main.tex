@@ -52,21 +52,10 @@
 
 %-------------------------
 % Custom commands
-\newcommand{\resumeItem}[2]{
-  \item\small{
-    \textbf{#1}{: #2 \vspace{-2pt}}
-  }
-}
 
-% Just in case someone needs a heading that does not need to be in a list
-\newcommand{\resumeHeading}[4]{
-    \begin{tabular*}{0.99\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small #3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-5pt}
-}
-
-\newcommand{\resumeSubheading}[4]{
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,label=]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeSubHeading}[4]{
   \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \textit{#2} \\
@@ -74,26 +63,16 @@
     \end{tabular*}\vspace{-5pt}
 }
 
-\newcommand{\resumeSubSubheading}[2]{
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small #1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-5pt}
-}
-
-\newcommand{\resumeItemPlain}[1]{
+\newcommand{\resumeItemListStart}{\begin{itemize}[]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItem}[1]{
   \item\small{
     {#1 \vspace{-2pt}}
   }
 }
 
-\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
-
 \renewcommand{\labelitemii}{$\circ$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,label=]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 %-------------------------------------------
 %%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -113,40 +92,37 @@
 \section{Experience}
   \resumeSubHeadingListStart
 
-    \resumeSubheading
+    \resumeSubHeading
       {Rivos / Meta}{June 2022 - Present}
       {Firmware Engineer}{}
       \resumeItemListStart
-        \resumeItemPlain{Meta acquired Rivos Dec 2025}
-        \resumeItemPlain{Led firmware development for a first generation DDR5 memory controller and PHY. Interpreted JEDEC specifications and manufacturer datasheets to guarantee functionality and compliance across diverse component variants.}
-        \resumeItemPlain{Used high-speed oscilloscopes and logic analyzers to debug termination impedances and protocol issues during DDR5 memory controller bringup to support running at higher data rates.}
-        \resumeItemPlain{Worked with IP vendor to integrate delivered code into custom FW stack, allowing for quick rollout of updates.}
-        % \resumeItemPlain{Built debug tooling for tuning memory controller timing parameters and all dependent values}
-        \resumeItemPlain{Built a framework to run production firmware on a debug host, targeting memory controller configuration to physical chips, enabling bringup before the rest of the firmware stack was available and a seamless transition to full SoC integration.}
-        \resumeItemPlain{Architected and led development of post-silicon tooling for controlling a first generation debug platform, using a machine-readable model of on-platform devices that dynamically changed operations based on board configuration and user preferences, enabling flexible multi-configuration bringup with a simple UX.}
-        \resumeItemPlain{Implemented device drivers for on-board peripherals over JTAG, I\textsuperscript{2}C, I3C, SPI, and other interfaces, enabling board bringup, power sequencing and SoC debug infrastructure.  Required debugging analog and digital circuits for reset sequencing, bus interference, and margin issues.}
-        \resumeItemPlain{Debugged FTDI timing/protocol issues using oscilloscopes and logic analyzers; fixes landed upstream to pyFTDI and pySpiFlash.}
-  \resumeItemPlain{Wrote a variety of RISC-V runtimes, including porting the open source Hubris \href{https://github.com/rivosinc/hubris}{\faLink[regular]} microkernel and its Humility \href{https://github.com/rivosinc/humility}{\faLink} debugger to RISC-V.}
+        \resumeItem{Meta acquired Rivos Dec 2025}
+        \resumeItem{Wrote a variety of RISC-V runtimes, including porting the open source Hubris \href{https://github.com/rivosinc/hubris}{\faLink[regular]} microkernel and its Humility \href{https://github.com/rivosinc/humility}{\faLink} debugger to RISC-V.}
+        \resumeItem{Led firmware development for a first generation DDR5 memory controller and PHY. Interpreted JEDEC specifications and manufacturer datasheets to guarantee functionality and compliance across diverse component variants.}
+        \resumeItem{Used high-speed oscilloscopes and logic analyzers to debug termination impedances and protocol issues during DDR5 memory controller bringup to support running at higher data rates.}
+        \resumeItem{Worked with IP vendor to integrate delivered code into custom FW stack, allowing for quick rollout of updates.}
+        % \resumeItem{Built debug tooling for tuning memory controller timing parameters and all dependent values}
+        \resumeItem{Built a framework to run production firmware on a debug host, targeting memory controller configuration to physical chips, enabling bringup before the rest of the firmware stack was available and a seamless transition to full SoC integration.}
+        \resumeItem{Architected and led development of post-silicon tooling for controlling a first generation debug platform, using a machine-readable model of on-platform devices that dynamically changed operations based on board configuration and user preferences, enabling flexible multi-configuration bringup with a simple UX.}
+        \resumeItem{Implemented device drivers for on-board peripherals over JTAG, I\textsuperscript{2}C, I3C, SPI, and other interfaces, enabling board bringup, power sequencing and SoC debug infrastructure.  Required debugging analog and digital circuits for reset sequencing, bus interference, and margin issues.}
+        \resumeItem{Debugged FTDI timing/protocol issues using oscilloscopes and logic analyzers; fixes landed upstream to pyFTDI and pySpiFlash.}
       \resumeItemListEnd
       
-    \resumeSubheading
+    \resumeSubHeading
       {Micron}{Summer 2021}
       {Embedded System Engineering Intern}{}
       \resumeItemListStart
-        \resumeItemPlain{Overhauled protocols built on top of USB to utilize DMA for 99\% performance improvement.}
-        \resumeItemPlain{Analyzed legacy test equipment FW to identify and fix newly exposed test escapes.}
-
+        \resumeItem{Overhauled protocols built on top of USB to utilize DMA for 99\% performance improvement.}
+        \resumeItem{Analyzed legacy test equipment FW to identify and fix newly exposed test escapes.}
       \resumeItemListEnd
 
-    \resumeSubheading
+    \resumeSubHeading
       {UIUC FRESH Lab}{Spring 2021}
       {Robotics Engineering Undergraduate Research}{}
       \resumeItemListStart
-        \resumeItemPlain{Formulated simulation models of a tractor for efficient testing of algorithms without field testing.}
-        \resumeItemPlain{Collaborated with a team of research engineers to formulate motion planning algorithms.}
-
+        \resumeItem{Formulated simulation models of a tractor for efficient testing of algorithms without field testing.}
+        \resumeItem{Collaborated with a team of research engineers to formulate motion planning algorithms.}
       \resumeItemListEnd
-
 
   \resumeSubHeadingListEnd
       
@@ -168,7 +144,7 @@
 %-----------EDUCATION-----------------
 \section{Education}
   \resumeSubHeadingListStart
-    \resumeSubheading
+    \resumeSubHeading
       {University of Illinois Urbana-Champaign}{2018 -- 2022}
       {BS in Computer Engineering, Minor in Statistics}{3.88/4.0}
   \resumeSubHeadingListEnd
