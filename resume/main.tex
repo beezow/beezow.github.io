@@ -63,21 +63,21 @@
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \textit{#2} \\
       \textit{\small #3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-5pt}
+    \end{tabular*}\vspace{-8pt}
 }
 
 \newcommand{\resumeItemListStart}{\begin{itemize}[]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 \newcommand{\resumeItem}[1]{
   \item\small{
-    {#1}\vspace{-3pt}
+    {#1}\vspace{-4pt}
   }
 }
 
 \newcommand{\skillsEntry}[2]{
     \item{
       \textbf{#1}{: #2}
-      \vspace{-3pt}
+      \vspace{-6pt}
     }
 }
 
@@ -98,6 +98,10 @@
 \end{tabular*}
 
 
+\section{Personal Statement}
+\small{% comment to skip the newline here
+Firmware Engineer specializing in bare metal environments and custom platform tooling. Proven track record of building software models and tools for rapid pre- and post-silicon debugging. Seeking to leverage expertise in Rust firmware, silicon bringup, and system design to build high-performance silicon platforms.
+}\vspace{-6pt}
 %-----------EXPERIENCE-----------------
 \section{Experience}
   \resumeSubHeadingListStart
@@ -122,7 +126,7 @@
         % \resumeItem{Post Silicon Validation Platform Tooling}
         \resumeItem{Architected and led development of post-silicon tooling for controlling and debugging a first generation server platform.}
         \resumeItemListStart
-          \resumeItem{Used a machine-readable model of on-platform devices to dynamically change operations based on board configurations and user preferences, enabling flexible multi-configuration bringup with a simple UX.}
+          \resumeItem{Used a machine-readable model of on-platform devices to dynamically change operations based on board configurations and user preferences, enabling flexible multi-configuration bringup while maintaining a simple UX.}
           \resumeItem{Implemented device drivers for on-board peripherals over JTAG, I\textsuperscript{2}C, I3C, SPI, and other interfaces, enabling board bringup, power sequencing and SoC debug infrastructure.  Required debugging analog and digital circuits for reset sequencing, bus interference, and margin issues.}
           \resumeItem{Debugged FTDI timing/protocol issues using oscilloscopes and logic analyzers; fixes landed upstream to pyFTDI and pySpiFlash.}
         \resumeItemListEnd
