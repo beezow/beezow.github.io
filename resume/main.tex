@@ -20,6 +20,7 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+\usepackage{setspace}
 \input{glyphtounicode}
 
 \pagestyle{fancy}
@@ -29,11 +30,14 @@
 \renewcommand{\footrulewidth}{0pt}
 
 % Adjust margins
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.25in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.2in}
+
+% Line Spacing
+\setstretch{0.96}
 
 \urlstyle{same}
 
@@ -47,8 +51,8 @@
 
 % Sections formatting
 \titleformat{\section}{
-  \vspace{-8pt}\scshape\raggedright\large
-}{}{0em}{}[\color{primarycolor}\titlerule \vspace{-5pt}]
+  \vspace{-12pt}\scshape\raggedright\large
+}{}{0em}{}[\color{primarycolor}\titlerule \vspace{-8pt}]
 
 % Ensure that generated PDF is machine readable/ATS parsable
 \pdfgentounicode=1
@@ -56,28 +60,25 @@
 %-------------------------
 % Custom commands
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,label=]}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,label=,itemsep=-1pt]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeSubHeading}[4]{
   \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & \textit{#2} \\
+      \textbf{#1} & \textit{#2} \\%
       \textit{\small #3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-8pt}
+    \end{tabular*}\vspace{-4pt}
 }
 
-\newcommand{\resumeItemListStart}{\begin{itemize}[]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=1pt,parsep=0pt,topsep=1pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-0pt}}
 \newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1}\vspace{-4pt}
-  }
+  \item\small{{#1}}
 }
 
 \newcommand{\skillsEntry}[2]{
     \item{
       \textbf{#1}{: #2}
-      \vspace{-6pt}
     }
 }
 
@@ -94,23 +95,24 @@
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   \textbf{\href{https://github.com/beezow}{\Large Andrew \textcolor{primarycolor}{Zoghby}}} & \textcolor{primarycolor}{\faEnvelope[regular]} \href{mailto:dzoghby4@gmail.com}{dzoghby4@gmail.com}\\
-   & \href{https://github.com/beezow}{\textcolor{primarycolor}{\faGithub[regular]} github.com/beezow} \\
+   & \href{https://github.com/beezow}{\textcolor{primarycolor}{\faGithub[regular]} github.com/beezow}
 \end{tabular*}
-
-
+\vspace{-15pt}
 \section{Personal Statement}
 \small{% comment to skip the newline here
-Firmware Engineer specializing in bare metal environments and custom platform tooling. Proven track record of building software models and tools for rapid pre- and post-silicon debugging. Seeking to leverage expertise in Rust firmware, silicon bringup, and system design to build high-performance silicon platforms.
+% silicon FW statement: Firmware Engineer specializing in bare metal environments and custom platform tooling. Proven track record of building software models and tools for rapid pre- and post-silicon debugging. Seeking to leverage expertise in Rust firmware, silicon bringup, and system design to build high-performance silicon platforms.
+%
+% platform FW statement:
+Firmware Engineer specializing in bare metal environments and custom platform tooling. Proven track record of performing critical platform enablement and debugging complex FW/HW interactions. Seeking to leverage this expertise in Rust firmware and system bringup to enabled a team to launch new products.
 }\vspace{-6pt}
 %-----------EXPERIENCE-----------------
 \section{Experience}
   \resumeSubHeadingListStart
 
     \resumeSubHeading
-      {Rivos / Meta}{June 2022 - Present}
+      {Rivos / Meta \small\textmd{(via acquisition Dec 2025)}}{June 2022 - Present}
       {Firmware Engineer}{}
       \resumeItemListStart
-        \resumeItem{Meta acquired Rivos Dec 2025}
         \resumeItem{Wrote a variety of RISC-V runtimes, including porting the open source Hubris \href{https://github.com/rivosinc/hubris}{\faLink[regular]} microkernel and its Humility \href{https://github.com/rivosinc/humility}{\faLink} debugger to RISC-V.}
         % \resumeItem{DDR5 Firmware and Bringup Lead}
         \resumeItem{Led firmware development for a first-generation DDR5 memory controller and PHY.}
@@ -119,16 +121,17 @@ Firmware Engineer specializing in bare metal environments and custom platform to
           % \resumeItem{Built debug tooling for tuning memory controller timing parameters and all dependent values.}
           \resumeItem{Generated and debugged PHY loopback patterns for ATE testing environments.}
           \resumeItem{Built a testing framework to directly reuse production firmware against pre-si DV models and post-si bringup environments. Enabled seamless transition between pre-si, post-si, and production.}
-          \resumeItem{Decoupling DDR controller testing from other SoC functions enabled DDR controller bringup day-zero, leading to a successful Linux boot in 2 weeks on first-generation silicon.}
+          \resumeItem{Successful Linux boot in 2 weeks on first generation silicon, in thanks to decoupling DDR testing from other SoC functions, allowing DDR bringup to start day-zero.}
           \resumeItem{Interpreted JEDEC specifications and manufacturer datasheets to guarantee functionality and compliance across diverse DIMM variants.}
           \resumeItem{Used high-speed oscilloscopes and logic analyzers to debug termination impedances and protocol issues during bringup to support running at higher data rates.}
         \resumeItemListEnd
         % \resumeItem{Post Silicon Validation Platform Tooling}
-        \resumeItem{Architected and led development of post-silicon tooling for controlling and debugging a first-generation server platform.}
+        \resumeItem{Architected and led development of critical post-silicon tooling for controlling and debugging a first-generation server platform.}
         \resumeItemListStart
-          \resumeItem{Used a machine-readable model of on-platform devices to dynamically change operations based on board configurations and user preferences, enabling flexible multi-configuration bringup while maintaining a simple UX.}
+          \resumeItem{Successfully enabled in-depth remote debugging for a global workforce, requiring minimal in-person tasks.}
+          \resumeItem{Created a machine-readable model of on-platform devices to dynamically change operations based on board configurations and user preferences, enabling flexible multi-configuration bringup with a simple UX.}
           \resumeItem{Implemented device drivers for on-board peripherals over JTAG, I\textsuperscript{2}C, I3C, SPI, and other interfaces, enabling board bringup, power sequencing and SoC debug infrastructure.  Required debugging analog and digital circuits for reset sequencing, bus interference, and margin issues.}
-          \resumeItem{Debugged FTDI timing/protocol issues using oscilloscopes and logic analyzers; fixes landed upstream to pyftdi and pyspiflash.}
+          \resumeItem{Debugged FTDI protocol issues using scopes and logic analyzers; fixes landed upstream to pyftdi and pyspiflash.}
         \resumeItemListEnd
       \resumeItemListEnd
       
@@ -144,7 +147,7 @@ Firmware Engineer specializing in bare metal environments and custom platform to
       {UIUC Field Robotics Engineering and Sciences Hub}{Spring 2021}
       {Robotics Engineering Undergraduate Research Assistant}{}
       \resumeItemListStart
-        \resumeItem{Developed kinematic models of a tractor for efficient testing of algorithms without field testing.}
+        \resumeItem{Developed kinematic models of a tractor in Gazebo for efficient testing of algorithms without field testing.}
         \resumeItem{Collaborated with a team of research engineers to formulate motion planning algorithms.}
         \resumeItem{Fitted sensor package to tractor to feed motion control algorithms.}
       \resumeItemListEnd
@@ -155,8 +158,8 @@ Firmware Engineer specializing in bare metal environments and custom platform to
 %--------SKILLS------------
 \section{Skills}
   \resumeSubHeadingListStart
-    \skillsEntry{Languages}{Rust, C, Python, RISC-V Assembly}
-    \skillsEntry{Protocols and Hardware}{JTAG, I\textsuperscript{2}C, I3C, SPI, UART, DDR5, Oscilloscopes, Logic Analyzers}
+    \skillsEntry{Languages}{Rust, C, Python, RISC-V Assembly}\vspace{-5pt}
+    \skillsEntry{Protocols and Hardware}{JTAG, I\textsuperscript{2}C, I3C, SPI, UART, DDR5, Oscilloscopes, Logic Analyzers}\vspace{-5pt}
     \skillsEntry{Tools}{Git, Cargo, GDB, KiCad}
   \resumeSubHeadingListEnd
 
